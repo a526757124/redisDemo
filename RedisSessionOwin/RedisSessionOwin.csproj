@@ -50,6 +50,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="RedisService\MasterRedis-2.8.19\dump.rdb" />
+    <None Include="RedisService\MasterRedis-2.8.19\redis.conf" />
+    <None Include="RedisService\MasterRedis-2.8.19\start_redis.bat" />
+    <None Include="RedisService\SlaveRedis-2.8.19\dump.rdb" />
+    <None Include="RedisService\SlaveRedis-2.8.19\redis.conf" />
+    <None Include="RedisService\SlaveRedis-2.8.19\start_redis.bat" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="RedisService\MasterRedis-2.8.19\redis-benchmark.exe" />
+    <Content Include="RedisService\MasterRedis-2.8.19\redis-check-aof.exe" />
+    <Content Include="RedisService\MasterRedis-2.8.19\redis-check-dump.exe" />
+    <Content Include="RedisService\MasterRedis-2.8.19\redis-cli.exe" />
+    <Content Include="RedisService\MasterRedis-2.8.19\redis-server.exe" />
+    <Content Include="RedisService\SlaveRedis-2.8.19\redis-benchmark.exe" />
+    <Content Include="RedisService\SlaveRedis-2.8.19\redis-check-aof.exe" />
+    <Content Include="RedisService\SlaveRedis-2.8.19\redis-check-dump.exe" />
+    <Content Include="RedisService\SlaveRedis-2.8.19\redis-cli.exe" />
+    <Content Include="RedisService\SlaveRedis-2.8.19\redis-server.exe" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
