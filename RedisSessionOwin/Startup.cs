@@ -1,15 +1,16 @@
-﻿using System;
+﻿using Owin;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace RedisSessionOwin
 {
-    class Startup
+    public class Startup
     {
-        internal void Configuration(Microsoft.Owin.Builder.AppBuilder builder)
+        public void Configuration(IAppBuilder builder)
         {
-            throw new NotImplementedException();
+            builder.UseRedisSession();
         }
     }
 }

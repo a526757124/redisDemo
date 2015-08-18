@@ -7,6 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "redisTest", "redisTest\redi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisSessionOwin", "RedisSessionOwin\RedisSessionOwin.csproj", "{BFB7A108-7039-41DC-9D43-7B110992C359}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{7C34F1F5-E43A-47E3-ACB7-794AA8A43B90}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OwinMVC", "OwinMVC\OwinMVC.csproj", "{08767921-FE65-4C49-8631-31E1D6FF04F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{90B85627-A4B7-45CA-9809-85DE9C06FC66}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,8 +27,20 @@ Global
 		{BFB7A108-7039-41DC-9D43-7B110992C359}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BFB7A108-7039-41DC-9D43-7B110992C359}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BFB7A108-7039-41DC-9D43-7B110992C359}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08767921-FE65-4C49-8631-31E1D6FF04F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08767921-FE65-4C49-8631-31E1D6FF04F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08767921-FE65-4C49-8631-31E1D6FF04F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08767921-FE65-4C49-8631-31E1D6FF04F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90B85627-A4B7-45CA-9809-85DE9C06FC66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90B85627-A4B7-45CA-9809-85DE9C06FC66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90B85627-A4B7-45CA-9809-85DE9C06FC66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90B85627-A4B7-45CA-9809-85DE9C06FC66}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{08767921-FE65-4C49-8631-31E1D6FF04F5} = {7C34F1F5-E43A-47E3-ACB7-794AA8A43B90}
+		{90B85627-A4B7-45CA-9809-85DE9C06FC66} = {7C34F1F5-E43A-47E3-ACB7-794AA8A43B90}
 	EndGlobalSection
 EndGlobal
