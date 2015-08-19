@@ -11,7 +11,6 @@ namespace OwinMVC.Controllers
     {
         public ActionResult Index()
         {
-            var str = RedisSession.SessionName;
             return View();
         }
 

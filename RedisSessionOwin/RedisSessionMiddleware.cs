@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Newtonsoft.Json;
 #endregion
 
 namespace RedisSessionOwin
@@ -41,15 +41,25 @@ namespace RedisSessionOwin
             #region request
             var sessionID = context.Request.Cookies["Redis_SessionId"];
             RedisSession redisSession = new RedisSession(context, true, 300);
-            string sessionStr="";
+            string sessionStr = "未登录";
             if (!string.IsNullOrEmpty(sessionID))
             {
-                 sessionStr = redisSession[sessionID];
+                if (redisSession[sessionID] != null)
+                {
+
+                    var userStr = redisSession[sessionID];
+                    var user = JsonConvert.DeserializeObject<User>(userStr.ToString());
+                    sessionStr = user.Name + " 已登录";
+                }
+                else
+                {
+                    redisSession.Add(sessionID, JsonConvert.SerializeObject(new User() { ID = 1, Name = "张三" }));
+                }
             }
             else
             {
-                sessionID = Guid.NewGuid().ToString();
-                redisSession.Add(sessionID, "abc");
+                //sessionID = redisSession.SessionID;
+                redisSession.Add(sessionID, JsonConvert.SerializeObject(new User() { ID = 1, Name = "张三" }));
             }
 
             #endregion
@@ -57,7 +67,7 @@ namespace RedisSessionOwin
 
 
             #region response
-            
+
             context.Response.ContentType = "text/html; charset=utf-8";
             context.Response.Cookies.Append("Redis_SessionId", sessionID);
 

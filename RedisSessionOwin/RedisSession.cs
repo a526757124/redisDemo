@@ -94,7 +94,7 @@ namespace RedisSessionOwin
             }
             else
             {
-                return "Session_" + requestCookie[SessionName];
+                return requestCookie[SessionName];
             }
         }
 
@@ -108,17 +108,30 @@ namespace RedisSessionOwin
         //
         // 返回结果:
         //     具有指定名称的会话状态值；如果该项不存在，则为 null。
-        public string this[string name]
+        //public string this[string name]
+        //{
+        //    get
+        //    {
+        //        //return client.GetValueFromHash(SessionID, name);
+        //        return RedisBase.Hash_Get<string>(SessionName, name);
+        //    }
+        //    set
+        //    {
+        //        //client.SetEntryInHash(SessionID, name, value);
+        //        RedisBase.Hash_Set<string>(SessionName, name, value);
+        //    }
+        //}
+        public object this[string name]
         {
             get
             {
                 //return client.GetValueFromHash(SessionID, name);
-                return RedisBase.Hash_Get<string>(SessionID, name);
+                return RedisBase.Hash_Get<object>(SessionName, name);
             }
             set
             {
                 //client.SetEntryInHash(SessionID, name, value);
-                RedisBase.Hash_Set<string>(SessionID, name, value);
+                RedisBase.Hash_Set<object>(SessionName, name, value);
             }
         }
 
@@ -132,18 +145,19 @@ namespace RedisSessionOwin
         //
         //   value:
         //     要添加到会话状态集合的项的值。
-        public void Add(string name, string value)
+        public void Add<T>(string name, T value)
         {
             //client.SetEntryInHash(SessionID, name, value);
-            RedisBase.Hash_Set<string>(SessionID, name, value);
+            RedisBase.Hash_Set<T>(SessionName, name, value);
         }
+        
         //
         // 摘要:
         //     从会话状态集合中移除所有的键和值。
         public void Clear()
         {
             //client.Remove(SessionID);
-            RedisBase.Hash_Remove(SessionID);
+            RedisBase.Hash_Remove(SessionName);
         }
 
         //
@@ -156,7 +170,7 @@ namespace RedisSessionOwin
         public void Remove(string name)
         {
             //client.RemoveEntryFromHash(SessionID, name);
-            RedisBase.Hash_Remove(SessionID, name);
+            RedisBase.Hash_Remove(SessionName, name);
         }
         //
         // 摘要:
