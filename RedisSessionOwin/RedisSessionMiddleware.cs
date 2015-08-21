@@ -65,9 +65,7 @@ namespace RedisSessionOwin
             #endregion
 
 
-
             #region response
-
             context.Response.ContentType = "text/html; charset=utf-8";
             context.Response.Cookies.Append("Redis_SessionId", sessionID);
 
